@@ -71,9 +71,10 @@ l refines l2 Req2 Feature1.
 # Getting Started
 Prerequisites:
 
-The program written in java , jdk must be installed to run the program https://www.oracle.com/sa/java/technologies/javase-downloads.html .
-Text file must be created and included in main class arguments before running the program . We already created text file named (traceability) to run the program , here an explanaition of main arguments and how to access them https://stackoverflow.com/questions/890966/what-is-string-args-parameter-in-main-method-java .
-Inputs to the program must follow specific format which we described above.
+1. The program written in java , jdk must be installed to run the program https://www.oracle.com/sa/java/technologies/javase-downloads.html .
+2. Text file must be created and included in main class arguments before running the program . We already created text file named (traceability) to run the program , here an explanaition of main arguments and how to access them https://stackoverflow.com/questions/890966/what-is-string-args-parameter-in-main-method-java .
+3. Inputs to the program must follow specific format which we described above.
+
 The program provide a textual interface to interact.
 
 Interface Structure :
@@ -105,15 +106,17 @@ Interface Structure :
        (5) Back
        
 (3) Back 
+
 (2) Query Information:
 
-(1) Display Statstics 
+       (1) Display Statstics 
 
-(2) Find Forward Links
+       (2) Find Forward Links
 
-(3) Find Backword Links
+       (3) Find Backword Links
 
 (4) Back
+
 (3) Save Information
 
 (4) Exit
@@ -121,8 +124,19 @@ Interface Structure :
 # Provided Code
 The attached archive contains Java code organized into three packages.
 
-Package concepts contains classes that represent traceability elements:
-• Concept: an abstract class, is the superclass of the other classes in the package • ArtifactKind • LinkKind • Artifact • Link All the classes contain the appropriate attributes and getters and setters. The package concepts contains also the class TraceabilityInfo that encapsulates traceability information in the form of lists of artifact kinds, link kinds, artifacts, and links. Necessary methods for the management of these elements are defined:
+1. Package concepts contains classes that represent traceability elements:
+
+• Concept: an abstract class, is the superclass of the other classes in the package 
+
+• ArtifactKind 
+
+• LinkKind 
+
+• Artifact 
+
+• Link
+
+All the classes contain the appropriate attributes and getters and setters. The package concepts contains also the class TraceabilityInfo that encapsulates traceability information in the form of lists of artifact kinds, link kinds, artifacts, and links. Necessary methods for the management of these elements are defined:
 
 • methods used to add new elements: addX where X∈{ArtifactKind, LinkKind, Artifact, Link}.
 
@@ -132,11 +146,14 @@ Package concepts contains classes that represent traceability elements:
 
 • methods used to retrieve all the elements: getXs where X∈{ArtifactKind, LinkKind, Artifact, Link}.
 
-Package proc contains classes used to read the contents of a text file, analyze them, create instances of the appropriate traceability elements classes, and store them in an instance of TraceabilityInfo Class Reader defines methods used for low level reading of the contents of the text file:
-– readWord: tries to read a string composed of letters and digits and return it. If this was not possible, it returns null. – readDoubleQuotedString: tries to read a double quoted string composed of letters, digits, and whitespaces and return it. If this was not possible, it returns null. – readDot: tries to read a string composed of one dot and return it. If this was not possible, it returns null.
+2. Package proc contains classes used to read the contents of a text file, analyze them, create instances of the appropriate traceability elements classes, and store them in an instance of TraceabilityInfo Class Reader defines methods used for low level reading of the contents of the text file:
+
+– readWord: tries to read a string composed of letters and digits and return it. If this was not possible, it returns null.
+
+– readDoubleQuotedString: tries to read a double quoted string composed of letters, digits, and whitespaces and return it. If this was not possible, it returns null. – readDot: tries to read a string composed of one dot and return it. If this was not possible, it returns null.
 
 Class Analyzer defines methods that use the methods defined in Reader to get the contents of a text file, analyze them, create instances of the appropriate traceability elements classes, and store them in an instance of TraceabilityInfo.
 
 – analyze: the principal analysis method. It reads the first tokens and then calls the appropriate analysis method of the class to analyze the discovered traceability element. – analyzeX where X ArtifactKind, LinkKind, Artifact, Link : uses Reader method to analyze a traceability element and store it in an instance of TraceabilityInfo.
 
-Package main contains a main class Main. The defined program takes as ar- gument the name of the file to be analyzed. The main methods shows you how the constructors of Reader and Analyzer are called. An instance of TracebilityInfo is then created. Then the method analyze is called in a loop to populate this instance until an error or the end of the file is reached.
+3. Package main contains a main class Main. The defined program takes as argument the name of the file to be analyzed. The main methods shows you how the constructors of Reader and Analyzer are called. An instance of TracebilityInfo is then created. Then the method analyze is called in a loop to populate this instance until an error or the end of the file is reached.
