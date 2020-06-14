@@ -1,0 +1,20 @@
+def artifact Ac "Activity" "Activity Diagram".
+def artifact Tc "Test" "Test Case".
+def artifact Cd "Class" "Class Diagram".
+def artifact St "state" "State Diagram".
+def artifact Dc "Design" "Design Class diagram".
+def artifact rq "Requirement" "Analysis phase".
+def artifact ft "feature" "Feature".
+def link depends "depends" rq rq* "Dependency between two req".
+def link refines "refines" rq ft "A requirement refines a software feature".
+def link establish "establish" rq Cd* "A requirement establish many class".
+def link test "test" Tc rq "Test case for req".
+a ft Feature1.
+a rq Req1.
+a rq Req2.
+a rq Req4.
+a rq Req3.
+a Cd C1.
+l depends l1 Req1 Req2 Req4.
+l refines l2 Req2 Feature1.
+l depends oooo Req3 Req2 Req4.
